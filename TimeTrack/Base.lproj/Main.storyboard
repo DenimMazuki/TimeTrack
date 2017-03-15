@@ -89,7 +89,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3d-g9-mrK" id="xgM-r3-Gx4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I4-Si-6r9">
@@ -176,6 +176,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162.40000000000001" y="138.0809595202399"/>
+        </scene>
+        <!--InputViewController-->
+        <scene sceneID="SjH-Eg-N1r">
+            <objects>
+                <viewController storyboardIdentifier="InputViewController" title="InputViewController" id="r2M-he-3Fg" customClass="InputViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fgw-ai-eZS"/>
+                        <viewControllerLayoutGuide type="bottom" id="85w-Kt-fP6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Dl-Pt-vad">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff5-zg-Scn">
+                                <rect key="frame" x="168" y="28" width="39" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0p-k1-iS2">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h0p-k1-iS2" firstAttribute="top" secondItem="ff5-zg-Scn" secondAttribute="bottom" constant="20" id="9bl-z0-oEH"/>
+                            <constraint firstItem="h0p-k1-iS2" firstAttribute="centerX" secondItem="9Dl-Pt-vad" secondAttribute="centerX" id="DIu-TC-1vt"/>
+                            <constraint firstItem="h0p-k1-iS2" firstAttribute="trailing" secondItem="9Dl-Pt-vad" secondAttribute="trailingMargin" id="HCs-k9-j1X"/>
+                            <constraint firstItem="ff5-zg-Scn" firstAttribute="top" secondItem="Fgw-ai-eZS" secondAttribute="bottom" constant="8" id="M7w-yx-pzP"/>
+                            <constraint firstItem="ff5-zg-Scn" firstAttribute="centerX" secondItem="9Dl-Pt-vad" secondAttribute="centerX" id="Zkj-vG-lY6"/>
+                            <constraint firstItem="h0p-k1-iS2" firstAttribute="leading" secondItem="9Dl-Pt-vad" secondAttribute="leadingMargin" id="mUF-IV-Use"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleTextField" destination="h0p-k1-iS2" id="m6H-LK-fww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BPm-a5-S4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>

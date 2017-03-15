@@ -10,8 +10,10 @@ import UIKit
 
 class TaskDataProvider: NSObject, UITableViewDataSource {
     
+    let taskManager = TaskManager()
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,7 +22,7 @@ class TaskDataProvider: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return taskManager.toDoCount
     }
     
 }

@@ -37,6 +37,9 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.tableView.dataSource is TaskDataProvider)
     }
     
-    
+    func test_DraggingTableViewDownwards_PresentsInputVC() {
+        
+        XCTAssertNil(sut.presentedViewController)
+    }
     
 }

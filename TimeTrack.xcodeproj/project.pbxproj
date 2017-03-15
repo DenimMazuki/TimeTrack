@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6225F5D1E79F867004A48CA /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F5C1E79F867004A48CA /* InputViewController.swift */; };
 		D684D4851E78C18300340054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4841E78C18300340054 /* AppDelegate.swift */; };
 		D684D48A1E78C18300340054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684D4881E78C18300340054 /* Main.storyboard */; };
 		D684D48C1E78C18300340054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684D48B1E78C18300340054 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6225F5C1E79F867004A48CA /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		D684D4811E78C18300340054 /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684D4841E78C18300340054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D684D4891E78C18300340054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				D684D4A61E78CCEB00340054 /* HomeViewController.swift */,
 				D684D4A81E78CE5A00340054 /* TaskDataProvider.swift */,
+				D6225F5C1E79F867004A48CA /* InputViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				D684D4AF1E78CEFE00340054 /* Task.swift in Sources */,
 				D684D4851E78C18300340054 /* AppDelegate.swift in Sources */,
 				D684D4B11E78D3CD00340054 /* TaskManager.swift in Sources */,
+				D6225F5D1E79F867004A48CA /* InputViewController.swift in Sources */,
 				D684D4A91E78CE5A00340054 /* TaskDataProvider.swift in Sources */,
 				D684D4A71E78CCEB00340054 /* HomeViewController.swift in Sources */,
 			);
@@ -460,6 +464,7 @@
 				D684D4A01E78C18300340054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D684D4A11E78C18300340054 /* Build configuration list for PBXNativeTarget "TimeTrackTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +473,7 @@
 				D684D4A31E78C18300340054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
