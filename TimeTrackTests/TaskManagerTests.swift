@@ -88,4 +88,18 @@ class TaskManagerTests: XCTestCase {
         
     }
     
+    func test_RemoveAll_RemovesAllTask() {
+        
+        sut.add(task: Task(title: "Code"))
+        sut.add(task: Task(title: "Sleep"))
+        sut.add(task: Task(title: "Repeat"))
+        
+        sut.check(at: 0)
+        sut.removeAllTask()
+        
+        XCTAssertEqual(sut.toDoCount, 0)
+        XCTAssertEqual(sut.doneCount, 0)
+        
+    }
+    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TaskManager {
+class TaskManager: NSObject {
     var toDoCount: Int {
         return toDoTask.count
     }
@@ -49,5 +49,10 @@ class TaskManager {
     func uncheck(at index: Int) {
         let task = doneTask.remove(at: index)
         toDoTask.append(task)
+    }
+    
+    func removeAllTask() {
+        toDoTask.removeAll()
+        doneTask.removeAll()
     }
 }

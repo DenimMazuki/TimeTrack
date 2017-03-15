@@ -16,5 +16,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var pomodoroLabel: UILabel!
     
+    let taskManager = TaskManager()
+    
+    let dataProvider = TaskDataProvider()
+    
+    override func viewDidLoad() {
+        tableView.dataSource = dataProvider
+    }
 
 }

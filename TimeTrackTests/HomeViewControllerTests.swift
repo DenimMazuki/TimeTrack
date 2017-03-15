@@ -26,6 +26,17 @@ class HomeViewControllerTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+    
+    func test_HomeVC_ContainsTableViewAfterViewDidLoad() {
         
+        XCTAssertNotNil(sut.tableView)
+    }
+    
+    func test_LoadingView_SetsTableViewDataSource() {
+        
+        XCTAssertTrue(sut.tableView.dataSource is TaskDataProvider)
+    }
+    
+    
     
 }
