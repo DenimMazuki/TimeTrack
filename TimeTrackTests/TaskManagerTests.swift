@@ -55,6 +55,37 @@ class TaskManagerTests: XCTestCase {
         XCTAssertEqual(sut.doneTask(at: 0), Task(title:"Code"))
     }
     
+    func test_RemovingTasks_DoesNotTransferToCompletedTask() {
+        
+        sut.add(task: Task(title: "Code"))
+        sut.removeTask(at: 0)
+        
+        XCTAssertEqual(sut.toDoCount, 0)
+        XCTAssertEqual(sut.doneCount, 0)
+    }
     
+    func test_RemovingDoneTasks_DoesNotTransferToIncompleteTask() {
+        
+        sut.add(task: Task(title: "Code"))
+        sut.check(at: 0)
+        
+        sut.removeDoneTask(at: 0)
+        
+        XCTAssertEqual(sut.doneCount, 0)
+        XCTAssertEqual(sut.toDoCount, 0)
+    }
+    
+    func test_UncheckTask_TransferDoneTaskToIncomplete() {
+        
+        sut.add(task: Task(title: "Code"))
+        sut.check(at: 0)
+        
+        sut.uncheck(at: 0)
+        
+        XCTAssertEqual(sut.toDoCount, 1)
+        XCTAssertEqual(sut.doneCount, 0)
+        XCTAssertEqual(sut.task(at: 0), Task(title: "Code"))
+        
+    }
     
 }
