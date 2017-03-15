@@ -25,4 +25,12 @@ class InputViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backButtonPressed() {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func saveButtonPressed() {
+        
+    }
+    
 }

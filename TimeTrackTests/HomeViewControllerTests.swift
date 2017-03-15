@@ -37,9 +37,20 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.tableView.dataSource is TaskDataProvider)
     }
     
-    func test_DraggingTableViewDownwards_PresentsInputVC() {
+    
+    
+}
+
+extension HomeViewControllerTests {
+    
+    class MockHomeViewController: HomeViewController {
         
-        XCTAssertNil(sut.presentedViewController)
+        var completionHandler: (()->Void)?
+        
+        override func presentInputVC() {
+            completionHandler?()
+        }
+        
     }
     
 }

@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
     }()
     
     func presentInputVC() {
-        print("HEY")
         
         if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "InputViewController") as? InputViewController {
             

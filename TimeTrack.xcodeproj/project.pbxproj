@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D6225F5D1E79F867004A48CA /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F5C1E79F867004A48CA /* InputViewController.swift */; };
+		D6225F5F1E7A066E004A48CA /* InputViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F5E1E7A066E004A48CA /* InputViewControllerTests.swift */; };
 		D684D4851E78C18300340054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4841E78C18300340054 /* AppDelegate.swift */; };
 		D684D48A1E78C18300340054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684D4881E78C18300340054 /* Main.storyboard */; };
 		D684D48C1E78C18300340054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684D48B1E78C18300340054 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		D6225F5C1E79F867004A48CA /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		D6225F5E1E7A066E004A48CA /* InputViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewControllerTests.swift; sourceTree = "<group>"; };
 		D684D4811E78C18300340054 /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684D4841E78C18300340054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D684D4891E78C18300340054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				D684D4A41E78CC8F00340054 /* HomeViewControllerTests.swift */,
+				D6225F5E1E7A066E004A48CA /* InputViewControllerTests.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				D684D4B31E78D3D700340054 /* TaskManagerTests.swift in Sources */,
 				D684D4AD1E78CEF300340054 /* TaskTests.swift in Sources */,
 				D684D4A51E78CC8F00340054 /* HomeViewControllerTests.swift in Sources */,
+				D6225F5F1E7A066E004A48CA /* InputViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
