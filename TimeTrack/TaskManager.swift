@@ -9,20 +9,34 @@
 import Foundation
 
 class TaskManager {
-    var toDoCount: Int
-    var doneCount: Int
+    var toDoCount: Int {
+        return toDoTask.count
+    }
+    var doneCount: Int {
+        return doneTask.count
+    }
+    
+    private var toDoTask: [Task] = []
+    private var doneTask: [Task] = []
     
     func add(task: Task) {
-        toDoCount += 1
+        toDoTask.append(task)
     }
     
-    func check(at: Int) {
-        toDoCount -= 1
-        doneCount += 1
+    
+    func check(at index: Int) {
+        let task = toDoTask.remove(at: index)
+        doneTask.append(task)
     }
     
-    init() {
-        toDoCount = 0
-        doneCount = 0
+    func task(at index: Int) -> Task {
+        
+        return toDoTask[index]
     }
+    
+    func doneTask(at index: Int) -> Task {
+        
+        return doneTask[index]
+    }
+    
 }

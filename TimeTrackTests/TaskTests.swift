@@ -47,4 +47,17 @@ class TaskTests: XCTestCase {
     }
     
     
+    func test_CreateTwoTaskWithSameTitleOnSameDay_ShouldEqual() {
+        let firstTask = Task(title: "Code")
+        let secondTask = Task(title: "Code")
+        
+        XCTAssertEqual(firstTask, secondTask)
+    }
+    
+    func test_CreateTwoTaskWithDifferentTitleOnSameDay_ShouldNotEqual() {
+        let firstTask = Task(title: "Code")
+        let secondTask = Task(title: "Sleep")
+        
+        XCTAssertNotEqual(firstTask, secondTask)
+    }
 }

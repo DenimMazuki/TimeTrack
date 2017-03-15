@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Task {
+struct Task: Equatable {
     let title: String
     let timeSpent: Double
     let dateCreated: String
@@ -24,4 +24,20 @@ struct Task {
         self.timeSpent = 0.0
         self.dateCreated = dateFormatter.string(from: Date())
     }
+}
+
+func ==(lhs: Task, rhs: Task) -> Bool {
+    if (lhs.title != rhs.title) {
+        return false
+    }
+    
+    if (lhs.timeSpent != rhs.timeSpent) {
+        return false
+    }
+    
+    if (lhs.dateCreated != rhs.dateCreated) {
+        return false
+    }
+    
+    return true
 }

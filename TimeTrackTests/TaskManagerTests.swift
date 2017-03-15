@@ -48,11 +48,13 @@ class TaskManagerTests: XCTestCase {
         XCTAssertEqual(sut.doneCount, 1)
     }
     
-//    func test_CheckItem_MovesToDoItemToDoneItem() {
-//        
-//        sut.add(task: Task(title: "Code"))
-//        sut.check(at: 0)
-//        XCTAssertEqual(sut.don, <#T##expression2: [T : U]##[T : U]#>)
-//    }
-//    
+    func test_CheckItem_MovesToDoItemToDoneItem() {
+        
+        sut.add(task: Task(title: "Code"))
+        sut.check(at: 0)
+        XCTAssertEqual(sut.doneTask(at: 0), Task(title:"Code"))
+    }
+    
+    
+    
 }
