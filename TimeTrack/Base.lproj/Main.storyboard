@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -165,6 +165,13 @@
                             <constraint firstAttribute="trailing" secondItem="vwu-h0-XfN" secondAttribute="trailing" id="ruP-bQ-vhj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="optionsButton" destination="Rp1-MV-XzQ" id="Wqb-UO-910"/>
+                        <outlet property="pomodoroLabel" destination="skb-qP-80k" id="2ao-Fu-7hB"/>
+                        <outlet property="startButton" destination="8ZL-D5-Tz3" id="zJ7-yx-3rv"/>
+                        <outlet property="tableView" destination="qlE-tu-KDD" id="1Cw-Jv-igH"/>
+                        <outlet property="timerLabel" destination="Tyb-vh-tHo" id="teF-RD-5f2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

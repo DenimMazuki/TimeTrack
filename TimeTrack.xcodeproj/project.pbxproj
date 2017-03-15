@@ -11,6 +11,11 @@
 		D684D48A1E78C18300340054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684D4881E78C18300340054 /* Main.storyboard */; };
 		D684D48C1E78C18300340054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684D48B1E78C18300340054 /* Assets.xcassets */; };
 		D684D48F1E78C18300340054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684D48D1E78C18300340054 /* LaunchScreen.storyboard */; };
+		D684D4A51E78CC8F00340054 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4A41E78CC8F00340054 /* HomeViewControllerTests.swift */; };
+		D684D4A71E78CCEB00340054 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4A61E78CCEB00340054 /* HomeViewController.swift */; };
+		D684D4A91E78CE5A00340054 /* TaskDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4A81E78CE5A00340054 /* TaskDataProvider.swift */; };
+		D684D4AD1E78CEF300340054 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4AC1E78CEF300340054 /* TaskTests.swift */; };
+		D684D4AF1E78CEFE00340054 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4AE1E78CEFE00340054 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,11 @@
 		D684D4901E78C18300340054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D684D4951E78C18300340054 /* TimeTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684D49B1E78C18300340054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D684D4A41E78CC8F00340054 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		D684D4A61E78CCEB00340054 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D684D4A81E78CE5A00340054 /* TaskDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDataProvider.swift; sourceTree = "<group>"; };
+		D684D4AC1E78CEF300340054 /* TaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
+		D684D4AE1E78CEFE00340054 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				D684D4841E78C18300340054 /* AppDelegate.swift */,
+				D684D4AB1E78CE6700340054 /* Model */,
+				D684D4AA1E78CE6000340054 /* Controller */,
 				D684D4881E78C18300340054 /* Main.storyboard */,
 				D684D48B1E78C18300340054 /* Assets.xcassets */,
 				D684D48D1E78C18300340054 /* LaunchScreen.storyboard */,
@@ -86,8 +98,27 @@
 			isa = PBXGroup;
 			children = (
 				D684D49B1E78C18300340054 /* Info.plist */,
+				D684D4AC1E78CEF300340054 /* TaskTests.swift */,
+				D684D4A41E78CC8F00340054 /* HomeViewControllerTests.swift */,
 			);
 			path = TimeTrackTests;
+			sourceTree = "<group>";
+		};
+		D684D4AA1E78CE6000340054 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D684D4A61E78CCEB00340054 /* HomeViewController.swift */,
+				D684D4A81E78CE5A00340054 /* TaskDataProvider.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D684D4AB1E78CE6700340054 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D684D4AE1E78CEFE00340054 /* Task.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +175,7 @@
 					};
 					D684D4941E78C18300340054 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D684D4801E78C18300340054;
 					};
@@ -193,7 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D684D4AF1E78CEFE00340054 /* Task.swift in Sources */,
 				D684D4851E78C18300340054 /* AppDelegate.swift in Sources */,
+				D684D4A91E78CE5A00340054 /* TaskDataProvider.swift in Sources */,
+				D684D4A71E78CCEB00340054 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D684D4AD1E78CEF300340054 /* TaskTests.swift in Sources */,
+				D684D4A51E78CC8F00340054 /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +391,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TimeTrackTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmazuki.TimeTrackTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTrack.app/TimeTrack";
 			};
@@ -368,6 +407,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TimeTrackTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmazuki.TimeTrackTests;
