@@ -21,9 +21,21 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var pomodoroLabel: UILabel!
     
+    
     let taskManager = TaskManager()
     let dayManager = DayManager()
     let dataProvider = TaskDataProvider()
+    let timer = Timer()
+    
+    var timeLeft: Double? = 25.0 {
+        didSet {
+            // Casting to mute error
+            if (Double(timeLeft!) > Double(timer.timeLeft!)) {
+                timeLeft = timer.timeLeft
+                timerLabel.text = "\(timeLeft)"
+            }
+        }
+    }
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

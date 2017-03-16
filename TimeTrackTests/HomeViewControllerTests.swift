@@ -12,6 +12,7 @@ import XCTest
 class HomeViewControllerTests: XCTestCase {
     
     var sut: HomeViewController!
+    var startButton: UIButton?
     
     override func setUp() {
         super.setUp()
@@ -22,11 +23,18 @@ class HomeViewControllerTests: XCTestCase {
         
         _ = sut.view
         
+        startButton = sut.startButton
+        
          UIApplication.shared.keyWindow?.rootViewController = sut
     }
     
     override func tearDown() {
         super.tearDown()
+    }
+    
+    func test_HomeVC_ContainsStartButton() {
+        
+        XCTAssertNotNil(startButton)
     }
     
     func test_HomeVC_ContainsTableViewAfterViewDidLoad() {
@@ -66,13 +74,17 @@ class HomeViewControllerTests: XCTestCase {
     
     func test_StartButton_IfClickedTwiceTextIsSetToStart() {
         
-        let button = sut.startButton
         
-        sut.startStopButtonPressed(button!)
-        sut.startStopButtonPressed(button!)
         
-        XCTAssertEqual(button?.titleLabel?.text, "Start")
+        sut.startStopButtonPressed(startButton!)
+        sut.startStopButtonPressed(startButton!)
         
+        XCTAssertEqual(startButton?.titleLabel?.text, "Start")
+    }
+    
+    func test_StartButton_IfClickedOnce_BeginsCountingDownTimer() {
+        
+        sut.startStopButtonPressed(startButton!)
     }
     
 }
@@ -80,6 +92,7 @@ class HomeViewControllerTests: XCTestCase {
 extension HomeViewControllerTests {
     
     class MockHomeViewController: HomeViewController {
+        
         
         var completionHandler: (()->Void)?
         
