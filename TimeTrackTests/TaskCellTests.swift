@@ -35,10 +35,21 @@ class TaskCellTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_CellContainsTitleLabel() {
+    func test_CellContainLabels() {
         
         XCTAssertNotNil(cell.titleLabel)
+        XCTAssertNotNil(cell.taskTimeLabel)
     }
+    
+    func test_ConfigCellSetsLabelsText() {
+        
+        let task = Task(title: "Code")
+        cell.configCell(task: task)
+        
+        XCTAssertEqual(cell.titleLabel.text, "Code")
+        XCTAssertEqual(cell.taskTimeLabel.text, "0.0")
+    }
+    
     
 }
 

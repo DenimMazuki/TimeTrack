@@ -13,7 +13,10 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
     
-    
+    func configCell(task: Task) {
+        titleLabel.text = task.title
+        taskTimeLabel.text = "\(task.timeSpent)"
+    }
     
     
 }
