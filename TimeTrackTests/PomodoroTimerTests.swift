@@ -46,7 +46,7 @@ class PomodoroTimerTests: XCTestCase {
     }
     
     
-    func test_AfterInit_WhenTimeLeftIsZero_IsInBreakModeAndIsActive() {
+    func test_AfterInit_WhenTimeLeftIsZero_StartsBreak() {
         
         let mockTimer = MockPomodoroTimer()
         let timerWentZeroExpectation = expectation(description: "timer went to zero")
@@ -64,16 +64,28 @@ class PomodoroTimerTests: XCTestCase {
         XCTAssertTrue(mockTimer.isActive)
     }
     
-//    func test_Init_IfInBreakModeAndIsActive_SetsTimerToWorkTimeAndModeToWork() {
-//        
-//        let mockTimer = MockPomodoroTimer()
-//        
-//        mockTimer.currentMode = PomodoroModes.Break
-//        mockTimer.isActive = true
-//        
-//        
-//        
-//    }
+    func test_Init_AtEndOfABreak_SetsTimeToWorkAndIsInactive() {
+        
+        let mockTimer = MockPomodoroTimer()
+        let timerWentZeroExpectation = expectation(description: "timer went to zero")
+        mockTimer.completionHandler = {
+            _ in
+            timerWentZeroExpectation.fulfill()
+        }
+        
+        mockTimer.currentMode = PomodoroModes.Break
+        mockTimer.isActive = true
+        
+        mockTimer.initTimer()
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        XCTAssertTrue(mockTimer.currentMode == PomodoroModes.Break)
+        XCTAssertTrue(mockTimer.timeLeft == mockTimer.shorterWork)
+        XCTAssertFalse(mockTimer.isActive)
+        
+    }
+    
+    
     
 }
 
