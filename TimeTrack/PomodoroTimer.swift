@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum PomodoroCases {
+enum PomodoroModes {
     case Work
     case Break
 }
@@ -17,13 +17,17 @@ class PomodoroTimer: NSObject {
     var timer: Timer = Timer()
     var isActive: Bool = false
     var timeLeft: Double
-    var currentCase = PomodoroCases.Break
+    var currentMode = PomodoroModes.Break
     
     var breakTime = 5.0
     var workTime = 25.0
     
     func initTimer() {
         // If current case is on break, starting timer will set it to work
+        
+        if (currentMode == PomodoroModes.Break) {
+            currentMode = PomodoroModes.Work
+        }
         
         if (!isActive) {
             
@@ -36,8 +40,8 @@ class PomodoroTimer: NSObject {
         } else {
             timeLeft = workTime
             // If already active: depends on two case
-            if (currentCase == PomodoroCases.Break) {
-                currentCase = PomodoroCases.Work
+            if (currentMode == PomodoroModes.Break) {
+                currentMode = PomodoroModes.Work
                 self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
                     _ in self.countDown()
                     
@@ -45,7 +49,7 @@ class PomodoroTimer: NSObject {
             } else {
                 
                 isActive = false
-                currentCase = PomodoroCases.Break
+                currentMode = PomodoroModes.Break
             }
             
             
@@ -61,16 +65,17 @@ class PomodoroTimer: NSObject {
             timeLeft -= 1.0
         } else {
             
-            if (currentCase == PomodoroCases.Break) {
+            if (currentMode == PomodoroModes.Break) {
                 // If timer finishes and its a break, reset to fresh start (25)
                 timeLeft = workTime
+                timer.invalidate()
+                isActive = false
             } else {
                 // If timer finishes and its a work, reset to break (5)
                 timeLeft = breakTime
+                currentMode = PomodoroModes.Break
             }
             
-            timer.invalidate()
-            isActive = false
             
         }
         

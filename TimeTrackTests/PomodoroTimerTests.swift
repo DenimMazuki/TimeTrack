@@ -12,6 +12,7 @@ import XCTest
 class PomodoroTimerTests: XCTestCase {
     
     var sut: PomodoroTimer!
+
     
     override func setUp() {
         super.setUp()
@@ -24,7 +25,7 @@ class PomodoroTimerTests: XCTestCase {
     
     func test_Timer_StartsAtBreakCase() {
         
-        XCTAssertTrue(sut.currentCase == PomodoroCases.Break)
+        XCTAssertTrue(sut.currentMode == PomodoroModes.Break)
     }
     
     func test_Timer_StartsWithInitialTimeOf25() {
@@ -44,7 +45,8 @@ class PomodoroTimerTests: XCTestCase {
         XCTAssertTrue(sut.isActive)
     }
     
-    func test_Timer_AfterInit_WhenTimeLeftIsZero_IsNotActive() {
+    
+    func test_AfterInit_WhenTimeLeftIsZero_IsInBreakModeAndIsActive() {
         
         let mockTimer = MockPomodoroTimer()
         let timerWentZeroExpectation = expectation(description: "timer went to zero")
@@ -56,11 +58,23 @@ class PomodoroTimerTests: XCTestCase {
         
         mockTimer.initTimer()
         
-        waitForExpectations(timeout: 4.0, handler: nil)
+        waitForExpectations(timeout: 3.0, handler: nil)
         
-        XCTAssertTrue(mockTimer.timerWentZero)
-
+        XCTAssertTrue(mockTimer.currentMode == PomodoroModes.Break)
+        XCTAssertTrue(mockTimer.isActive)
     }
+    
+//    func test_Init_IfInBreakModeAndIsActive_SetsTimerToWorkTimeAndModeToWork() {
+//        
+//        let mockTimer = MockPomodoroTimer()
+//        
+//        mockTimer.currentMode = PomodoroModes.Break
+//        mockTimer.isActive = true
+//        
+//        
+//        
+//    }
+    
 }
 
 extension PomodoroTimerTests {
@@ -68,7 +82,7 @@ extension PomodoroTimerTests {
     class MockPomodoroTimer: PomodoroTimer {
         
         // Mock Timer will have shorter down time to test: 2 second for work and 1 second for break
-        var shorterBreak: Double = 1.0
+        var shorterBreak: Double = 2.0
         var shorterWork: Double = 2.0
         var timerWentZero: Bool = false
         
@@ -76,6 +90,10 @@ extension PomodoroTimerTests {
         
         override func initTimer() {
             // If current case is on break, starting timer will set it to work
+            
+            if (currentMode == PomodoroModes.Break) {
+                currentMode = PomodoroModes.Work
+            }
             
             if (!isActive) {
                 
@@ -88,8 +106,8 @@ extension PomodoroTimerTests {
             } else {
                 timeLeft = shorterWork
                 // If already active: depends on two case
-                if (currentCase == PomodoroCases.Break) {
-                    currentCase = PomodoroCases.Work
+                if (currentMode == PomodoroModes.Break) {
+                    currentMode = PomodoroModes.Work
                     self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
                         _ in self.countDown()
                         
@@ -97,7 +115,7 @@ extension PomodoroTimerTests {
                 } else {
                     
                     isActive = false
-                    currentCase = PomodoroCases.Break
+                    currentMode = PomodoroModes.Break
                 }
                 
                 
@@ -110,18 +128,20 @@ extension PomodoroTimerTests {
             if (timeLeft > 0) {
                 timeLeft -= 1.0
             } else {
+                
                 timerWentZero = true
                 completionHandler!()
-                if (currentCase == PomodoroCases.Break) {
+                if (currentMode == PomodoroModes.Break) {
                     // If timer finishes and its a break, reset to fresh start (2)
                     timeLeft = shorterWork
+                    isActive = false
+                    timer.invalidate()
                 } else {
                     // If timer finishes and its a work, reset to break (5)
                     timeLeft = shorterBreak
+                    currentMode = PomodoroModes.Break
                 }
                 
-                timer.invalidate()
-                isActive = false
             }
             
         }
