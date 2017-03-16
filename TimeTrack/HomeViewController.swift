@@ -25,13 +25,13 @@ class HomeViewController: UIViewController {
     let taskManager = TaskManager()
     let dayManager = DayManager()
     let dataProvider = TaskDataProvider()
-    let timer = CustomTimer()
+    let pomodoroTimer = PomodoroTimer()
     
     var timeLeft: Double? = 25.0 {
         didSet {
             // Casting to mute error
-            if (Double(timeLeft!) > Double(timer.timeLeft)) {
-                timeLeft = timer.timeLeft
+            if (Double(timeLeft!) > Double(pomodoroTimer.timeLeft)) {
+                timeLeft = pomodoroTimer.timeLeft
                 timerLabel.text = "\(timeLeft)"
             }
         }
@@ -70,11 +70,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startStopButtonPressed(_ sender: UIButton) {
+        
         if (startButton.currentTitle == "Start") {
             startButton.setTitle("Stop", for: .normal)
         } else {
             startButton.setTitle("Start", for: .normal)
         }
+        
+        pomodoroTimer.initTimer()
     }
     
     

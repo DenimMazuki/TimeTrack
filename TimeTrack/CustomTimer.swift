@@ -8,29 +8,69 @@
 
 import UIKit
 
-class CustomTimer: NSObject {
+enum PomodoroCases {
+    case Work
+    case Break
+}
+
+class PomodoroTimer: NSObject {
     private var timer: Timer = Timer()
-    private var state: Bool = true
+    private var isActive: Bool = true
     var timeLeft: Double = 25.0
+    private var currentCase = PomodoroCases.Break
     
     func initTimer() {
-        // Start timer
-        if (self.state) {
+        // If current case is on break, starting timer will set it to work
+        
+        if (!isActive) {
+            
+            isActive = true
+            
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
                 _ in self.countDown()
                 
             }
         } else {
             timeLeft = 25.0
-            timer.invalidate()
+            // If already active: depends on two case
+            if (currentCase == PomodoroCases.Break) {
+                currentCase = PomodoroCases.Work
+                self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
+                    _ in self.countDown()
+                    
+                }
+            } else {
+                
+                isActive = false
+                currentCase = PomodoroCases.Break
+            }
+            
+            
         }
-        
-        self.state = !self.state
+
     }
     
     @objc func countDown() {
-        timeLeft -= 1.0
-        print(timeLeft)
+        
+        
+        
+        if (timeLeft > 0) {
+            timeLeft -= 1.0
+        } else {
+            
+            if (currentCase == PomodoroCases.Break) {
+                // If timer finishes and its a break, reset to fresh start (25)
+                timeLeft = 25.0
+            } else {
+                // If timer finishes and its a work, reset to break (5)
+                timeLeft = 5.0
+            }
+            
+            timer.invalidate()
+            isActive = false
+            
+        }
+        
     }
     
 }
