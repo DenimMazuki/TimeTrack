@@ -33,8 +33,20 @@ class InputViewControllerTests: XCTestCase {
         mockViewController.backButtonPressed()
         
         XCTAssertTrue(mockViewController.dismissGotCalled)
+    }
+    
+    func test_SaveButton_DismissesInputVC() {
+        
+        let mockViewController = MockInputViewController()
+        
+        mockViewController.titleTextField = UITextField()
+        
+        mockViewController.saveButtonPressed()
+        
+        XCTAssertTrue(mockViewController.dismissGotCalled)
         
     }
+    
     
     
 }

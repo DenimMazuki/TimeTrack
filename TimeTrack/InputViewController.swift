@@ -30,7 +30,7 @@ class InputViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed() {
-        
+        dismiss(animated: true)
     }
     
 }

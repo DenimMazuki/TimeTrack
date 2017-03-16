@@ -85,11 +85,11 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="I3d-g9-mrK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="64" id="I3d-g9-mrK" customClass="TaskCell" customModule="TimeTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3d-g9-mrK" id="xgM-r3-Gx4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I4-Si-6r9">
@@ -130,6 +130,11 @@
                                                 <constraint firstItem="1Vt-Ue-Dzd" firstAttribute="bottom" secondItem="xgM-r3-Gx4" secondAttribute="bottomMargin" id="tvg-LE-j6O"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="TaskCell" label="TaskCell"/>
+                                        <connections>
+                                            <outlet property="taskTimeLabel" destination="1Vt-Ue-Dzd" id="tO9-7Y-w7j"/>
+                                            <outlet property="titleLabel" destination="5I4-Si-6r9" id="9oW-xv-50t"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D6225F5D1E79F867004A48CA /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F5C1E79F867004A48CA /* InputViewController.swift */; };
 		D6225F5F1E7A066E004A48CA /* InputViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F5E1E7A066E004A48CA /* InputViewControllerTests.swift */; };
+		D6225F621E7A09D4004A48CA /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F611E7A09D4004A48CA /* TaskCell.swift */; };
+		D6225F651E7A0E61004A48CA /* TaskCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F641E7A0E61004A48CA /* TaskCellTests.swift */; };
 		D684D4851E78C18300340054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4841E78C18300340054 /* AppDelegate.swift */; };
 		D684D48A1E78C18300340054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684D4881E78C18300340054 /* Main.storyboard */; };
 		D684D48C1E78C18300340054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684D48B1E78C18300340054 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		D6225F5C1E79F867004A48CA /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		D6225F5E1E7A066E004A48CA /* InputViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewControllerTests.swift; sourceTree = "<group>"; };
+		D6225F611E7A09D4004A48CA /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		D6225F641E7A0E61004A48CA /* TaskCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCellTests.swift; sourceTree = "<group>"; };
 		D684D4811E78C18300340054 /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684D4841E78C18300340054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D684D4891E78C18300340054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +74,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6225F601E7A09B2004A48CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6225F611E7A09D4004A48CA /* TaskCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D6225F631E7A0E53004A48CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6225F641E7A0E61004A48CA /* TaskCellTests.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D684D4781E78C18300340054 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +113,7 @@
 			children = (
 				D684D4841E78C18300340054 /* AppDelegate.swift */,
 				D684D4AB1E78CE6700340054 /* Model */,
+				D6225F601E7A09B2004A48CA /* View */,
 				D684D4AA1E78CE6000340054 /* Controller */,
 				D684D4881E78C18300340054 /* Main.storyboard */,
 				D684D48B1E78C18300340054 /* Assets.xcassets */,
@@ -107,6 +128,7 @@
 			children = (
 				D684D49B1E78C18300340054 /* Info.plist */,
 				D684D4B41E78D3DD00340054 /* Model */,
+				D6225F631E7A0E53004A48CA /* View */,
 				D684D4B51E78D3E500340054 /* Controller */,
 			);
 			path = TimeTrackTests;
@@ -254,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D684D4AF1E78CEFE00340054 /* Task.swift in Sources */,
+				D6225F621E7A09D4004A48CA /* TaskCell.swift in Sources */,
 				D684D4851E78C18300340054 /* AppDelegate.swift in Sources */,
 				D684D4B11E78D3CD00340054 /* TaskManager.swift in Sources */,
 				D6225F5D1E79F867004A48CA /* InputViewController.swift in Sources */,
@@ -267,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D684D4B31E78D3D700340054 /* TaskManagerTests.swift in Sources */,
+				D6225F651E7A0E61004A48CA /* TaskCellTests.swift in Sources */,
 				D684D4AD1E78CEF300340054 /* TaskTests.swift in Sources */,
 				D684D4A51E78CC8F00340054 /* HomeViewControllerTests.swift in Sources */,
 				D6225F5F1E7A066E004A48CA /* InputViewControllerTests.swift in Sources */,
