@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum TimerState: String {
+    case Start
+    case Stop
+}
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -45,6 +50,21 @@ class HomeViewController: UIViewController {
             
         }
     }
+    
+    func increaseLatestDayPomodoro() {
+        dayManager.increaseLatestDayPomodoroCount()
+        
+        pomodoroLabel.text = "\(dayManager.latestDay().getPomodoroCompleted())"
+    }
+    
+    @IBAction func startStopButtonPressed(_ sender: UIButton) {
+        if (startButton.titleLabel?.text == TimerState.Start.rawValue) {
+            startButton.titleLabel?.text = "Stop"
+        } else {
+            startButton.titleLabel?.text = "Start"
+        }
+    }
+    
     
     override func viewDidLoad() {
         tableView.dataSource = dataProvider

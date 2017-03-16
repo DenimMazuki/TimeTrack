@@ -44,6 +44,9 @@
                                         <state key="normal" title="Start">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startStopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncD-mK-MDR"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7k-Mo-gHV">
                                         <rect key="frame" x="153" y="0.0" width="68" height="21"/>

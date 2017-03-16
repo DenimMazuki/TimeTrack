@@ -21,6 +21,8 @@ class HomeViewControllerTests: XCTestCase {
         sut = viewController as! HomeViewController
         
         _ = sut.view
+        
+         UIApplication.shared.keyWindow?.rootViewController = sut
     }
     
     override func tearDown() {
@@ -40,6 +42,37 @@ class HomeViewControllerTests: XCTestCase {
     func test_PomodoroLabel_InitiallyIsSetToZero() {
         
         XCTAssertEqual(sut.pomodoroLabel.text, "0")
+    }
+    
+    func test_PomodoroLabel_IncreasingLatestPomodoroIncreasesToOne() {
+        
+        sut.increaseLatestDayPomodoro()
+        
+        XCTAssertEqual(sut.pomodoroLabel.text, "1")
+    }
+    
+    func test_StartButton_ChangesTextToStopWhenPressed() {
+        
+        XCTAssertNotNil(sut.startButton)
+        
+        let button = sut.startButton
+        
+        XCTAssertNotNil(button)
+        
+        sut.startStopButtonPressed(button!)
+        
+        XCTAssertEqual(button?.titleLabel?.text, "Stop")
+    }
+    
+    func test_StartButton_IfClickedTwiceTextIsSetToStart() {
+        
+        let button = sut.startButton
+        
+        sut.startStopButtonPressed(button!)
+        sut.startStopButtonPressed(button!)
+        
+        XCTAssertEqual(button?.titleLabel?.text, "Start")
+        
     }
     
 }
