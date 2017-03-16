@@ -1,5 +1,5 @@
 //
-//  CustomTimer.swift
+//  PomodoroTimer.swift
 //  TimeTrack
 //
 //  Created by Denim Mazuki on 3/15/17.
@@ -14,10 +14,13 @@ enum PomodoroCases {
 }
 
 class PomodoroTimer: NSObject {
-    private var timer: Timer = Timer()
-    private var isActive: Bool = true
-    var timeLeft: Double = 25.0
-    private var currentCase = PomodoroCases.Break
+    var timer: Timer = Timer()
+    var isActive: Bool = false
+    var timeLeft: Double
+    var currentCase = PomodoroCases.Break
+    
+    var breakTime = 5.0
+    var workTime = 25.0
     
     func initTimer() {
         // If current case is on break, starting timer will set it to work
@@ -31,7 +34,7 @@ class PomodoroTimer: NSObject {
                 
             }
         } else {
-            timeLeft = 25.0
+            timeLeft = workTime
             // If already active: depends on two case
             if (currentCase == PomodoroCases.Break) {
                 currentCase = PomodoroCases.Work
@@ -60,10 +63,10 @@ class PomodoroTimer: NSObject {
             
             if (currentCase == PomodoroCases.Break) {
                 // If timer finishes and its a break, reset to fresh start (25)
-                timeLeft = 25.0
+                timeLeft = workTime
             } else {
                 // If timer finishes and its a work, reset to break (5)
-                timeLeft = 5.0
+                timeLeft = breakTime
             }
             
             timer.invalidate()
@@ -71,6 +74,12 @@ class PomodoroTimer: NSObject {
             
         }
         
+    }
+    
+    override init() {
+        timeLeft = workTime
+        
+        super.init()
     }
     
 }

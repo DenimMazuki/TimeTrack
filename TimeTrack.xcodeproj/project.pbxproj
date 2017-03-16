@@ -14,7 +14,7 @@
 		D6225F691E7A1231004A48CA /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F681E7A1231004A48CA /* Day.swift */; };
 		D6225F6B1E7A1324004A48CA /* DayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F6A1E7A1324004A48CA /* DayManager.swift */; };
 		D6225F6D1E7A17FA004A48CA /* DayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F6C1E7A17FA004A48CA /* DayManagerTests.swift */; };
-		D6225F6F1E7A2DEE004A48CA /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F6E1E7A2DEE004A48CA /* CustomTimer.swift */; };
+		D6225F6F1E7A2DEE004A48CA /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6225F6E1E7A2DEE004A48CA /* PomodoroTimer.swift */; };
 		D684D4851E78C18300340054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4841E78C18300340054 /* AppDelegate.swift */; };
 		D684D48A1E78C18300340054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684D4881E78C18300340054 /* Main.storyboard */; };
 		D684D48C1E78C18300340054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684D48B1E78C18300340054 /* Assets.xcassets */; };
@@ -26,6 +26,7 @@
 		D684D4AF1E78CEFE00340054 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4AE1E78CEFE00340054 /* Task.swift */; };
 		D684D4B11E78D3CD00340054 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4B01E78D3CD00340054 /* TaskManager.swift */; };
 		D684D4B31E78D3D700340054 /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684D4B21E78D3D700340054 /* TaskManagerTests.swift */; };
+		D68F8F061E7B1D070011E3BD /* PomodoroTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F8F051E7B1D070011E3BD /* PomodoroTimerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,7 @@
 		D6225F681E7A1231004A48CA /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		D6225F6A1E7A1324004A48CA /* DayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
 		D6225F6C1E7A17FA004A48CA /* DayManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayManagerTests.swift; sourceTree = "<group>"; };
-		D6225F6E1E7A2DEE004A48CA /* CustomTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
+		D6225F6E1E7A2DEE004A48CA /* PomodoroTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
 		D684D4811E78C18300340054 /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684D4841E78C18300340054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D684D4891E78C18300340054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		D684D4AE1E78CEFE00340054 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D684D4B01E78D3CD00340054 /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		D684D4B21E78D3D700340054 /* TaskManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerTests.swift; sourceTree = "<group>"; };
+		D68F8F051E7B1D070011E3BD /* PomodoroTimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroTimerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +161,7 @@
 				D684D4B01E78D3CD00340054 /* TaskManager.swift */,
 				D6225F681E7A1231004A48CA /* Day.swift */,
 				D6225F6A1E7A1324004A48CA /* DayManager.swift */,
-				D6225F6E1E7A2DEE004A48CA /* CustomTimer.swift */,
+				D6225F6E1E7A2DEE004A48CA /* PomodoroTimer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,6 +172,7 @@
 				D684D4AC1E78CEF300340054 /* TaskTests.swift */,
 				D684D4B21E78D3D700340054 /* TaskManagerTests.swift */,
 				D6225F6C1E7A17FA004A48CA /* DayManagerTests.swift */,
+				D68F8F051E7B1D070011E3BD /* PomodoroTimerTests.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -290,7 +293,7 @@
 				D6225F6B1E7A1324004A48CA /* DayManager.swift in Sources */,
 				D684D4AF1E78CEFE00340054 /* Task.swift in Sources */,
 				D6225F621E7A09D4004A48CA /* TaskCell.swift in Sources */,
-				D6225F6F1E7A2DEE004A48CA /* CustomTimer.swift in Sources */,
+				D6225F6F1E7A2DEE004A48CA /* PomodoroTimer.swift in Sources */,
 				D6225F691E7A1231004A48CA /* Day.swift in Sources */,
 				D684D4851E78C18300340054 /* AppDelegate.swift in Sources */,
 				D684D4B11E78D3CD00340054 /* TaskManager.swift in Sources */,
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6225F6D1E7A17FA004A48CA /* DayManagerTests.swift in Sources */,
+				D68F8F061E7B1D070011E3BD /* PomodoroTimerTests.swift in Sources */,
 				D684D4B31E78D3D700340054 /* TaskManagerTests.swift in Sources */,
 				D6225F651E7A0E61004A48CA /* TaskCellTests.swift in Sources */,
 				D684D4AD1E78CEF300340054 /* TaskTests.swift in Sources */,
