@@ -16,9 +16,15 @@ class DayManager {
         days.append(Day())
     }
     
-    func pomodoroCompleted(on: Day) -> Int {
+    func pomodoroCompleted(on day: Day) -> Int {
         
-        return 0
+        let selectedDay = days.filter {
+            (foundDay) in
+            
+            foundDay.getDate() == day.getDate()
+        }
+        
+        return (selectedDay.first?.getPomodoroCompleted())!
     }
     
     func latestDay() -> Day {
@@ -33,4 +39,11 @@ class DayManager {
         return days.count
     }
     
+    func removeAll() {
+        days.removeAll()
+    }
+    
+    func increaseLatestDayPomodoroCount() {
+        days[days.count - 1].increasePomodoro()
+    }
 }

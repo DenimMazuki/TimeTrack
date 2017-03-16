@@ -9,7 +9,7 @@
 import Foundation
 
 struct Day {
-    private var pomodoroCompleted: Int
+    private var pomodoroCompleted: Int = 0 
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -23,8 +23,12 @@ struct Day {
         return currentDate
     }
     
-    func getPomodoroCompleted() -> String {
-        return "\(pomodoroCompleted)"
+    func getPomodoroCompleted() -> Int {
+        return pomodoroCompleted
+    }
+    
+    mutating func increasePomodoro() {
+        pomodoroCompleted += 1
     }
     
     init() {
