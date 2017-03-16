@@ -17,8 +17,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pomodoroLabel: UILabel!
     
     let taskManager = TaskManager()
-    
+    let dayManager = DayManager()
     let dataProvider = TaskDataProvider()
+    
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        return dateFormatter
+    }()
     
     // To implement dragging of tableView to add new Task, refreshControl is overwriten
     lazy var dragToAddControl: UIRefreshControl = {
@@ -44,6 +50,14 @@ class HomeViewController: UIViewController {
         tableView.dataSource = dataProvider
         
         self.tableView.addSubview(dragToAddControl)
+        
+        // Check to see if current Day is already in DayManager
+        if (dayManager.latestDay().getDate() != dateFormatter.string(from: Date())) {
+            dayManager.addNewDay()
+        }
+        
+        pomodoroLabel.text = "\(dayManager.latestDay().getPomodoroCompleted())"
+        
     }
 
     

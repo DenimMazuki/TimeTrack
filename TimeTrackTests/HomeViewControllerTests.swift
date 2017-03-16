@@ -37,7 +37,10 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.tableView.dataSource is TaskDataProvider)
     }
     
-    
+    func test_PomodoroLabel_InitiallyIsSetToZero() {
+        
+        XCTAssertEqual(sut.pomodoroLabel.text, "0")
+    }
     
 }
 
