@@ -12,11 +12,16 @@ import XCTest
 class PomodoroTimerTests: XCTestCase {
     
     var sut: PomodoroTimer!
-
+    
+    var mockTimer: MockPomodoroTimer!
+    var mockDayManager: MockDayManager!
     
     override func setUp() {
         super.setUp()
         sut = PomodoroTimer()
+        mockTimer = MockPomodoroTimer()
+        mockDayManager = MockDayManager()
+        mockTimer.dayManager = mockDayManager
     }
     
     override func tearDown() {
@@ -47,8 +52,7 @@ class PomodoroTimerTests: XCTestCase {
     
     
     func test_AfterInit_WhenTimeLeftIsZero_StartsBreak() {
-        
-        let mockTimer = MockPomodoroTimer()
+
         let timerWentZeroExpectation = expectation(description: "timer went to zero")
         
         mockTimer.completionHandler = {
@@ -65,8 +69,7 @@ class PomodoroTimerTests: XCTestCase {
     }
     
     func test_Init_AtEndOfABreak_SetsTimeToWorkAndIsInactive() {
-        
-        let mockTimer = MockPomodoroTimer()
+
         let timerWentZeroExpectation = expectation(description: "timer went to zero")
         mockTimer.completionHandler = {
             _ in
@@ -85,16 +88,69 @@ class PomodoroTimerTests: XCTestCase {
         
     }
     
+    func test_Init_AtEndOfWork_PomodoroIncreasesByOne() {
+        
+        XCTAssertTrue(mockTimer.dayManager?.latestDay().getPomodoroCompleted() == 0)
+        
+        let timerWentZeroExpectation = expectation(description: "timer went to zero")
+        
+        mockTimer.completionHandler = {
+            _ in
+            self.mockTimer.timer.invalidate()
+            timerWentZeroExpectation.fulfill()
+        }
+        
+        mockTimer.initTimer()
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        XCTAssertTrue(mockTimer.dayManager?.latestDay().getPomodoroCompleted() == 1)
+        
+    }
     
+    func test_Init_AtEndOfEveryFourSession_SetsLongBreak() {
+
+        let timerWentZeroExpectation = expectation(description: "timer went to zero")
+        mockTimer.completionHandler = {
+            _ in
+            self.mockTimer.timer.invalidate()
+            timerWentZeroExpectation.fulfill()
+        }
+        
+        mockTimer.dayManager = MockDayManager()
+        
+        // Increase latest day pomodoro to 3
+        for _ in 1...3 {
+            mockTimer.dayManager?.increaseLatestDayPomodoroCount()
+        }
+        
+        XCTAssertTrue(mockTimer.dayManager?.latestDay().getPomodoroCompleted() == 3)
+        
+        mockTimer.initTimer()
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        XCTAssertEqual(mockTimer.timeLeft, mockTimer.longerBreak)
+        
+    }
     
 }
 
 extension PomodoroTimerTests {
     
+    class MockDayManager: DayManager {
+        
+        override init() {
+            super.init()
+            
+            self.addNewDay()
+        }
+    }
+    
     class MockPomodoroTimer: PomodoroTimer {
         
         // Mock Timer will have shorter down time to test: 2 second for work and 1 second for break
         var shorterBreak: Double = 2.0
+        var longerBreak: Double = 3.0
         var shorterWork: Double = 2.0
         var timerWentZero: Bool = false
         
@@ -150,7 +206,15 @@ extension PomodoroTimerTests {
                     timer.invalidate()
                 } else {
                     // If timer finishes and its a work, reset to break (5)
-                    timeLeft = shorterBreak
+                    
+                    dayManager?.increaseLatestDayPomodoroCount()
+                    
+                    if (dayManager?.latestDay().getPomodoroCompleted() != 0 && (dayManager?.latestDay().getPomodoroCompleted())! % 4 == 0) {
+                        timeLeft = longerBreak
+                    } else {
+                        timeLeft = shorterBreak
+                    }
+
                     currentMode = PomodoroModes.Break
                 }
                 

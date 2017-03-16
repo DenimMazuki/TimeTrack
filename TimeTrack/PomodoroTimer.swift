@@ -19,7 +19,10 @@ class PomodoroTimer: NSObject {
     var timeLeft: Double
     var currentMode = PomodoroModes.Break
     
-    var breakTime = 5.0
+    var dayManager: DayManager?
+    
+    var shortBreakTime = 5.0
+    var longBreakTime = 15.0
     var workTime = 25.0
     
     func initTimer() {
@@ -71,8 +74,16 @@ class PomodoroTimer: NSObject {
                 timer.invalidate()
                 isActive = false
             } else {
-                // If timer finishes and its a work, reset to break (5)
-                timeLeft = breakTime
+                // If timer finishes and its a work, reset to break depending next one is multiple of 4
+                
+                dayManager?.increaseLatestDayPomodoroCount()
+                
+                if (dayManager?.latestDay().getPomodoroCompleted() != 0 && (dayManager?.latestDay().getPomodoroCompleted())! % 4 == 0) {
+                    timeLeft = longBreakTime
+                } else {
+                    timeLeft = shortBreakTime
+                }
+                
                 currentMode = PomodoroModes.Break
             }
             
