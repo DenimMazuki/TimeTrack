@@ -8,6 +8,9 @@
 
 import UIKit
 
-class Timer {
+class Timer: NSObject {
     var timeLeft: Double?
+    
+    var timer = Timer()
+    
 }
