@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     let taskManager = TaskManager()
     let dayManager = DayManager()
     let dataProvider = TaskDataProvider()
-    let pomodoroTimer = PomodoroTimer()
+    var pomodoroTimer = PomodoroTimer()
     
     var timeLeft: Double? = 25.0 {
         didSet {
@@ -90,6 +90,8 @@ class HomeViewController: UIViewController {
         if (dayManager.latestDay().getDate() != dateFormatter.string(from: Date())) {
             dayManager.addNewDay()
         }
+        
+        pomodoroTimer.dayManager = dayManager
         
         pomodoroLabel.text = "\(dayManager.latestDay().getPomodoroCompleted())"
         

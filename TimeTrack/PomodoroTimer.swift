@@ -77,14 +77,15 @@ class PomodoroTimer: NSObject {
                 // If timer finishes and its a work, reset to break depending next one is multiple of 4
                 
                 dayManager?.increaseLatestDayPomodoroCount()
+                currentMode = PomodoroModes.Break
+                
                 
                 if (dayManager?.latestDay().getPomodoroCompleted() != 0 && (dayManager?.latestDay().getPomodoroCompleted())! % 4 == 0) {
                     timeLeft = longBreakTime
                 } else {
                     timeLeft = shortBreakTime
                 }
-                
-                currentMode = PomodoroModes.Break
+
             }
             
             
