@@ -26,7 +26,11 @@ class DayManager {
             days.append(Day())
         }
         
-        return days[days.endIndex -  1]
+        return days[days.count -  1]
+    }
+    
+    func numberOfDays() -> Int {
+        return days.count
     }
     
 }
