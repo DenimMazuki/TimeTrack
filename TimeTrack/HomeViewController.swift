@@ -25,12 +25,12 @@ class HomeViewController: UIViewController {
     let taskManager = TaskManager()
     let dayManager = DayManager()
     let dataProvider = TaskDataProvider()
-    let timer = Timer()
+    let timer = CustomTimer()
     
     var timeLeft: Double? = 25.0 {
         didSet {
             // Casting to mute error
-            if (Double(timeLeft!) > Double(timer.timeLeft!)) {
+            if (Double(timeLeft!) > Double(timer.timeLeft)) {
                 timeLeft = timer.timeLeft
                 timerLabel.text = "\(timeLeft)"
             }
@@ -70,10 +70,10 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startStopButtonPressed(_ sender: UIButton) {
-        if (startButton.titleLabel?.text == TimerState.Start.rawValue) {
-            startButton.titleLabel?.text = "Stop"
+        if (startButton.currentTitle == "Start") {
+            startButton.setTitle("Stop", for: .normal)
         } else {
-            startButton.titleLabel?.text = "Start"
+            startButton.setTitle("Start", for: .normal)
         }
     }
     

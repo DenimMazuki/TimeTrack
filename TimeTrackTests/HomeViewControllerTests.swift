@@ -82,10 +82,12 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertEqual(startButton?.titleLabel?.text, "Start")
     }
     
-    func test_StartButton_IfClickedOnce_BeginsCountingDownTimer() {
-        
-        sut.startStopButtonPressed(startButton!)
-    }
+//    func test_StartButton_IfClickedOnce_BeginsCountingDownTimer() {
+//        
+//        sut.startStopButtonPressed(startButton!)
+//        
+//        XCTAssertLessThan((sut.timeLeft)!, 25.0)
+//    }
     
 }
 
@@ -93,12 +95,15 @@ extension HomeViewControllerTests {
     
     class MockHomeViewController: HomeViewController {
         
+//        var 
+//        
+//        var completionHandler: (()->Void)?
+//        
+//        override func startStopButtonPressed(_ sender: UIButton) {
+//            <#code#>
+//        }
         
-        var completionHandler: (()->Void)?
         
-        override func presentInputVC() {
-            completionHandler?()
-        }
         
     }
     
